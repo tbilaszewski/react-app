@@ -27,3 +27,12 @@ export function removeFromFilledList(fieldName) {
     fieldName
   });
 }
+
+export function addSubmitState(state) {
+  store.dispatch({
+    type: 'SET_STATE',
+    submitted: state.submitted,
+    code: state.code,
+    description: state.description
+  });
+}

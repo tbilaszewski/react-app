@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Form, Button } from 'react-bootstrap';
-import { addValidationMessage, removeValidationMessage, addToFilledList, removeFromFilledList } from './actions';
+import { addSubmitState, addValidationMessage, removeValidationMessage, addToFilledList, removeFromFilledList } from './actions';
 
 import { store } from './index'
 import axios from 'axios';
@@ -43,11 +43,18 @@ export default function EventForm() {
         method: 'POST',
         data: payload
       })
-      .then(() => {
-        alert('form submitted');
-      }).catch((err) => {
-        console.log(err)
-        alert('error - form not saved');
+      .then((response) => {
+        addSubmitState({
+          submitted: true,
+          code: 'OK',
+          description: response.data.msg
+        })
+      }).catch((error) => {
+        addSubmitState({
+          submitted: true,
+          code: 'ERROR',
+          description: error.data.msg
+        })
       });
     }
   }
