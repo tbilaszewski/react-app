@@ -13,7 +13,7 @@ router.post('/save', (req, res) => {
             return;
         }
         return res.json({
-            msg: 'Document has been seaved'
+            msg: 'Document has been saved'
         });
     });
 });
