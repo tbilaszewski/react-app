@@ -1,7 +1,4 @@
-const submit = (state, {type, isSubmitted, code, description}) => {
-  if (!state) {
-    state = {};
-  }
+const submit = (state = {}, {type, isSubmitted, code, description}) => {
   switch (type) {
     case 'SET_STATE':
       return {

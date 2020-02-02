@@ -1,4 +1,4 @@
-import  {store} from '../index';
+import  {store} from '../App';
 
 export function addValidationMessage(id, text) {
   store.dispatch({

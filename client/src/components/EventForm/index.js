@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import { addSubmitState, addValidationMessage, removeValidationMessage, addToFilledList, removeFromFilledList } from '../../actions';
 
-import { store } from '../../index';
+import { store } from '../../App';
 import axios from 'axios';
 
 export default function EventForm() {
@@ -24,11 +24,11 @@ export default function EventForm() {
   function validateDate() {
     return validateRequiredField(dateRef,'Date');
   }
-  
+
   function saveData() {
     const { validationMessages, filledFields } = store.getState();
     
-    if (validationMessages.length || filledFields.length === 0) {
+    if (validationMessages.length || filledFields.length !== 4) {
       alert('You have to fill all fields properly!');
     } else {
       const payload = {
@@ -36,7 +36,7 @@ export default function EventForm() {
         lastName: lastNameRef.current.value,
         email: emailRef.current.value,
         date: String(dateRef.current.value),
-      }; 
+      };
       
       axios({
         url: 'http://localhost:8080/api/save',
@@ -53,7 +53,7 @@ export default function EventForm() {
         addSubmitState({
           submitted: true,
           code: 'ERROR',
-          description: error.data.msg
+          description: error
         })
       });
     }
@@ -113,13 +113,11 @@ function validateEmailField(reference, fieldName) {
   let { id } = reference.current;
   id = id + '_valid';
   if (!isEmail(value)) {
-    removeFromFilledList(id);
     addValidationMessage(id,`${fieldName} must be valid email`);
     classList.remove('is-valid');
     classList.add('is-invalid');
   }
   else {
-    addToFilledList(id);
     removeValidationMessage(id);
     classList.remove('is-invalid');
     classList.add('is-valid');

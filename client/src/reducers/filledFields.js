@@ -1,17 +1,14 @@
-const filledFields = (state, {fieldname, type}) => {
-  if (!state) {
-    state = [];
-  }
+const filledFields = (state = [], {fieldName, type}) => {
   switch (type) {
     case 'ADD':
-      if (state.includes(fieldname)) {
+      if (state.includes(fieldName)) {
         return state;
       } else {
-        return [...state, fieldname];
+        return [...state, fieldName];
       }
     case 'REMOVE':
       return state.filter((name) => {
-        return name !== fieldname;
+        return name !== fieldName;
       });
     default:
       return state

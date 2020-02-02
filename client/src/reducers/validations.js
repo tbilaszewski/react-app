@@ -1,7 +1,4 @@
-const validationErrors = (state, action) => {
-  if (!state) {
-    state = [];
-  }
+const validationErrors = (state = [], action) => {
   switch (action.type) {
     case 'ADD_ERROR':
       const duplicate = state.filter((el) => {
