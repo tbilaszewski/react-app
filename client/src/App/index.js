@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 
 import EventForm from '../components/EventForm';
 import ValidationMessagesList from '../components/ValidationMessages';
-import Submitinformation from '../components/SubmitInformation';
+import SubmitInformation from '../components/SubmitInformation';
 import './App.css';
 
 import reducer from "../reducers";
@@ -21,13 +21,13 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <div class="form-container">
+      <div className="form-container">
           <EventForm />
           <br/>
           <ValidationMessagesList />
       </div>
-      <div class="information-container">
-        <Submitinformation />
+      <div className="information-container">
+        <SubmitInformation />
       </div>
     </Provider>
   )

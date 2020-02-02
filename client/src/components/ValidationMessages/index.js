@@ -7,9 +7,9 @@ function ValidationMessagesList( { validationMessages }) {
   validationMessages = validationMessages ?? [];
   return (
     <ListGroup>{
-      validationMessages.map(({ text }) => {
+      validationMessages.map(({ text, id }) => {
         return (
-          <ListGroup.Item variant="warning">{text}</ListGroup.Item>
+          <ListGroup.Item key={id} variant="warning">{text}</ListGroup.Item>
         )
       })
     }
