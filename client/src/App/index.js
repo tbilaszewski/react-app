@@ -1,11 +1,11 @@
 import React from 'react';
 
-import EventForm from './EventForm';
-import ValidationMessagesList from './ValidationMessagesList';
-import Submitinformation from './SubmitInformation';
+import EventForm from '../components/EventForm';
+import ValidationMessagesList from '../components/ValidationMessages';
+import Submitinformation from '../components/SubmitInformation';
 
 
-import './App.css'
+import './App.css';
 
 export default function App() {
 
@@ -19,7 +19,6 @@ export default function App() {
       <div class="information-container">
         <Submitinformation />
       </div>
-      
     </>
   )
 }

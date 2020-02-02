@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import { Form, Button } from 'react-bootstrap';
-import { addSubmitState, addValidationMessage, removeValidationMessage, addToFilledList, removeFromFilledList } from './actions';
+import { addSubmitState, addValidationMessage, removeValidationMessage, addToFilledList, removeFromFilledList } from '../../actions';
 
-import { store } from './index'
+import { store } from '../../index';
 import axios from 'axios';
 
 export default function EventForm() {
