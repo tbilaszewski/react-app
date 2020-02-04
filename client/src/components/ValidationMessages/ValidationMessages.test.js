@@ -37,7 +37,7 @@ let store = mockStore({
     );
   });
 
-  it('contains no SubmitInformation length', () => {
+  it('contains no SubmitInformation', () => {
     expect(component.find(ListGroup.Item)).toHaveLength(0);
   });
   
@@ -79,7 +79,7 @@ describe('<ValidationMessages /> all fields not correct', () => {
       </Provider>
     );
 
-  it('contains no SubmitInformation length', () => {
+  it('contains 5 validation messages', () => {
     expect(component.find(ListGroup.Item)).toHaveLength(5);
   });
   

@@ -44,7 +44,7 @@ describe('<App /> initial state', () => {
   });
 
 
-  it('contains no SubmitInformation length', () => {
+  it('contains no SubmitInformation', () => {
     expect(app.find(Alert).at(0).prop('show')).toEqual(false);
   });
   
