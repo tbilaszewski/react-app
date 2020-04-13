@@ -39,7 +39,7 @@ export default function EventForm() {
       };
       
       axios({
-        url: 'http://localhost:8080/api/save',
+        url: 'http://localhost:3001/events',
         method: 'POST',
         data: payload
       })
@@ -47,13 +47,13 @@ export default function EventForm() {
         addSubmitState({
           submitted: true,
           code: 'OK',
-          description: response.data.msg
+          description: 'ok'
         })
       }).catch((error) => {
         addSubmitState({
           submitted: true,
           code: 'ERROR',
-          description: error
+          description: String(error)
         })
       });
     }
